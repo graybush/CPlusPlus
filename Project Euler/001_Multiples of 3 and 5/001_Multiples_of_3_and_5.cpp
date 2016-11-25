@@ -16,15 +16,25 @@ int main(){
 int X;
 int Y;
 int Z;
+int total;
 
-cout << "I will calculate the Multiples of X and Y until Z: " << endl;
-cout << "X? ";
+
+cout << "I will calculate the sum of all the multiples of  X and Y below Z: " << endl;
 cin >> X;
-cout << "Y? ";
 cin >> Y;
-cout << "Z? ";
 cin >> Z;
-cout << X, Y, Z;
+
+  for (int i = 0; i <= Z; i++){
+
+    if (i % X == 0 or i % Y == 0){
+    
+      total += i;
+    }
+
+
+  } 
+
+cout << "The sum of all the multiples of " << X << " and " << Y << " below " << Z << " are: " << total << endl;
 
 
 return 0;
