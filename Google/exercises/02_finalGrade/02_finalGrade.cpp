@@ -10,18 +10,17 @@ float cal_grade(float first, float second, float third,
 
 int main(){
 
-  float fir, sed, thi, fou, mid, fin, sec, grade;
-//  string "first", "second", "third", "fourth", "midterm", "final", "section";
+  float first, second, third, fourth, midterm, final, section, grade;
 
-  fir = get_input("first");
-  sed = get_input("second");
-  thi = get_input("third");
-  fou = get_input("fourth");
-  mid = get_input("midterm");
-  fin = get_input("final");
-  sec = get_input("section");
+  first = get_input("first");
+  second = get_input("second");
+  third = get_input("third");
+  fourth = get_input("fourth");
+  midterm = get_input("midterm");
+  final = get_input("final");
+  section = get_input("section");
 
-  grade = cal_grade(fir, sed, thi, fou, mid, fin, sec);
+  grade = cal_grade(first, second, third, fourth, midterm, final, section);
 
   cout << "The final grade is: " << grade << endl;
 
@@ -32,26 +31,30 @@ int main(){
 
 float get_input(string num){
 
-  float value;
+  float value = 0.0;
 
-  do {  
-    cout << "Enter the score for the " << num << " assignment. (-1 = quit) ";
+  do {
+    cout << "Enter the score for the " << num << " assignment. (-1 = quit) " << endl;
 
-    if (!(cin >> value)){
+    if (value == 0){
+
+    	cout << "Done.\n";
+    	break;
+
+    } else if (!(cin >> value)){
 
       cout << "A non-numeric was entered." << endl;
       cin.clear();
       cin.ignore(10000, '\n');
 
-    } else if (value >= 0){
+    } else {
 
       return value;
     }
   } while (value != -1);
 
     cout << "Done." << endl;
-    exit(EXIT_FAILURE);
-  
+
 }
 
 float cal_grade(float first, float second, float third,
